@@ -1,0 +1,29 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        Map<Integer,Integer> contains = new HashMap<Integer,Integer>();
+
+        for (int i = 0; i < nums.length; i++) {
+            contains.put(nums[i],i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int temp = target - nums[i];
+            if(contains.containsKey(temp)){
+                int i1 = contains.get(temp);
+                return new int[]{i,i1};
+            }
+        }
+
+        throw new RuntimeException("no such index");
+
+    }
+}
+
+//total_testcases:29
+//total_correct:26
+//input_formatted:[3,2,4]
+6
+//expected_output:[1,2]
+//code_output:[0,0]
